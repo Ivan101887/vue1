@@ -17,6 +17,7 @@
 		</div>
 	</li>
 </template>
+
 <script>
 	export default {
 		name: "ListItem",

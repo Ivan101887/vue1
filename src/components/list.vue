@@ -1,12 +1,9 @@
 <template>
 	<ul class="news container mx-auto">
-		<listItem
-			v-for="item in data"
-			:key="item.title"
-      :parent-data="item"
-		/>
+		<listItem v-for="item in data" :key="item.title" :parent-data="item" />
 	</ul>
 </template>
+
 <script>
 	import ListItem from "@/components/ListItem";
 	export default {
@@ -19,15 +16,15 @@
 		components: {
 			ListItem,
 		},
-		created() {
+		async created() {
 			const api = "./data.json ";
-			this.$http.get(api)
-				.then((res) => {
-					this.data = res.data;
-				})
-				.catch(err=>{
-					console.log(err)
-				})
+			try {
+				const res = await this.$http.get(api);
+				this.data = res.data;
+			} 
+			catch (err) {
+				console.log("獲取資料失敗:\n", err);
+			}
 		},
 	};
 </script>
