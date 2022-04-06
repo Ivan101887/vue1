@@ -2,14 +2,14 @@
 	<div class="news__content">
 		<h2 class="news__title text-ellipse">
 			<a
-				href="https://www.cmoney.tw/notes/note-detail.aspx?nid=19500"
+				:href="newsUrl"
 				class="news__link"
 			>
-				拿掉你的專業，你還剩什麼？
+				{{textTitle}}
 			</a>
 		</h2>
 		<p class="news__text">
-			年薪200萬的一個竹科高階主管分享。當我的女朋友告訴我，要走出來學習成長、找備胎時，
+			{{textExcerpt}}
 		</p>
 	</div>
 </template>
@@ -17,6 +17,7 @@
 	.news__content {
 		width: 70%;
 		padding: 15px;
+		box-sizing: border-box;
 	}
 	.news__link {
 		text-decoration: none;
@@ -35,5 +36,6 @@
 <script>
 	export default {
 		name: 'TextIn',
+		props:["newsUrl","textTitle","textExcerpt"],
 	}
 </script>
