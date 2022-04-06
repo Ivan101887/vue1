@@ -26,7 +26,6 @@
 			const api = "./data.json ";
 			this.$http.get(api).then((res) => {
 				this.allData = res.data;
-        console.log(this.allData);
 			});
 		},
 	};
